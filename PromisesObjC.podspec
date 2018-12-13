@@ -28,8 +28,10 @@ Pod::Spec.new do |s|
   }
 
   s.test_spec 'Tests' do |ts|
-    ts.source_files = "Tests/#{s.module_name}Tests/*.m",
+    ts.source_files = "Tests/#{s.module_name}Tests/*.{m,swift}",
                       "Sources/#{s.module_name}TestHelpers/include/#{s.module_name}TestHelpers.h"
+    ts.ios.dependency 'GELeaks'
+    ts.osx.dependency 'GELeaks'
   end
   s.test_spec 'PerformanceTests' do |ts|
     ts.source_files = "Tests/#{s.module_name}PerformanceTests/*.m",
